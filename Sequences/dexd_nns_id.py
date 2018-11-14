@@ -2,13 +2,13 @@ from Bio.Seq import Seq
 from Bio.Alphabet import IUPAC
 import os
 
-directory = os.fsencode("./Sequences")
+directory = os.fsencode(".")
 
 for file in os.listdir(directory):
     filename = os.fsdecode(file)
     if filename.endswith(".seq"):
         print(filename)
-        f = open("./Sequences/" + filename, "r")
+        f = open("./" + filename, "r")
         nns_seq = f.read()
         nns_seq = Seq(nns_seq, IUPAC.ambiguous_dna)
         split_sequence = nns_seq.split(sep="CGTTATTGATGAA")[1]
